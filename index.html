@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Scroll-Page-Progress </title>
+  </head>
+
+  <style>
+    body{
+      height: 5000px
+    }
+  .scroller{
+    position: fixed;
+    width: 0;
+    height: 32px;
+    background-color: red;
+    top: 0;
+    left: 0;
+  }
+  </style>
+
+  <body>
+
+    <div class="scroller"> </div>
+
+    <script>
+      let scroller = document.querySelector(".scroller");
+      let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+
+      window.addEventListener("scroll",()=>{
+        let scrollTop = document.documentElement.scrollTop;
+        scroller.style.width= `${(scrollTop / height)*100}%`
+      })
+    </script>
+
+  </body>
+</html>
